@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astreliz</title>
+
+  <!-- Шрифты и иконки -->
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --accent: #dca6ff;
+      --text: #ffffff;
+      --glow: 0 0 10px #fff, 0 0 20px var(--accent), 0 0 40px var(--accent);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      color: var(--text);
+      background: url('bg.JPG') center/cover no-repeat fixed;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #particles-js {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    body::before, body::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 25%;
+      z-index: 1;
+    }
+    body::before {
+      top: 0;
+      background: linear-gradient(to bottom, rgba(10,10,30,0.7), transparent);
+    }
+    body::after {
+      bottom: 0;
+      background: linear-gradient(to top, rgba(10,10,30,0.8), transparent);
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 60px 20px 60px;
+      gap: 25px;
+      backdrop-filter: blur(2px);
+    }
+
+    h1 {
+      font-family: 'Bangers', cursive;
+      font-size: 5.5rem;
+      color: var(--accent);
+      text-shadow: var(--glow);
+      animation: fadeIn 1s ease-out forwards;
+      margin-top: -160px;
+    }
+
+    .stream-time {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-top: -10px;
+    }
+
+    .stream-time i {
+      font-size: 2rem;
+      animation: rotate 3s linear infinite;
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 1.2rem;
+      padding: 16px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      box-shadow: 0 0 25px var(--accent);
+      animation: pulse 3s infinite, vibrate 3s infinite;
+      transition: transform 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.07);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .socials a {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .socials a i {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    .socials a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.1);
+    }
+
+    /* Анимации */
+    @keyframes rotate {
+      from { transform: rotate(0); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 var(--accent); }
+      70%  { box-shadow: 0 0 20px 20px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes vibrate {
+      0%, 100% { transform: translate(0); }
+      25% { transform: translateX(-1px); }
+      50% { transform: translateX(1px); }
+      75% { transform: translateY(-1px); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 3.2rem; }
+      .stream-time { font-size: 1.2rem; }
+      .btn { font-size: 1rem; padding: 14px 24px; }
+      .socials a { width: 44px; height: 44px; }
+      .socials a i { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <h1>ASTRELIZ</h1>
+
+    <!-- Время стрима -->
+    <div class="stream-time">
+      <i class="bi bi-twitch"></i>
+      25.08 в 19:00
+    </div>
+
+    <!-- Кнопка доната -->
+    <a href="https://new.donatepay.ru/@astreliz" class="btn">
+      <i class="bi bi-stars"></i> Поддержать
+    </a>
+
+    <!-- Соцсети -->
+    <div class="socials">
+      <a href="https://t.me/astrelitz"><i class="bi bi-telegram"></i></a>
+      <a href="https://www.instagram.com/asstreliz?igsh=aXJob3lyd2NmdzZ4"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-twitch"></i></a>
+      <a href="https://www.tiktok.com/@vampstreliz?_t=ZS-8yiEJG0dyVM&_r=1"><i class="bi bi-tiktok"></i></a>
+    </div>
+  </div>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 120 },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: {
+          value: 0.9,
+          anim: { enable: true, speed: 1, opacity_min: 0.3 }
+        },
+        size: {
+          value: 4,
+          random: true
+        },
+        move: {
+          enable: true,
+          speed: 1.5,
+          direction: 'none',
+          out_mode: 'out'
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: false },
+          onclick: { enable: false }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+
+</body>
+</html>
